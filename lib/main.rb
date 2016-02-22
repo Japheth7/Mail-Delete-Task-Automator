@@ -21,7 +21,6 @@ class Main
 		#get user input(action) until the action = quit
 		until result == :quit
 			action = get_action
-
 			result = do_action(action)
 		end
 		conclusion
@@ -30,14 +29,11 @@ class Main
 	def get_action
 		action = nil
 		until Main::Config.actions.include?(action)
-
 			puts "Actions: "+ Main::Config.actions.join(",") if action
-
 			print ">"
 			user_response = gets.chomp
 			action = user_response.downcase.strip
 		end
-
 		return action
 	end
 
@@ -70,7 +66,6 @@ class Main
 	
 	def delete
 		puts "\n Deleting all unread emails"
-
 		unread = gmail.inbox.emails(:unread, :before => Date.parse("2015-12-20"))
     	unread.each do |unread|
     		unread.delete!
