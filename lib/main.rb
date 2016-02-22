@@ -1,6 +1,5 @@
 class Main 
 	require 'gmail'
-
 	attr_reader :gmail
 
 	def initialize(gmail)
